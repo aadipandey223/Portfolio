@@ -3,324 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pandey | Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <title>Aditya Pandey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-    <img src="logo.png" alt="" class ="profile-img">
-    <h1 class="name">Aditya Pandey</h1>
-    <h3 class="title">Computer Science Student</h3>
-    <p>Bhimtal, Uttarakhand, IN</p>
-    </div>
-    <hr>
-<div class="box">
-        <details>
-            <summary>
-                <span class="summary-title">About Me</span>
-                <span class="arrow" aria-hidden="true">▾</span>
-            </summary>
-            <div class="content">
-                <p>
-                    Hello! I'm Aditya Pandey. I love exploring the world of technology and coding. I'm currently pursuing my B.Tech in Computer Science and Engineering at Graphic Era Hill University. 
-                    My interests include Data Science, AI-ML, and networking and IOT. I'm always eager to learn new things and take on exciting projects. Let's connect and create something amazing together!
-                </p>
+    <!-- Animation Layers -->
+    <div id="curtain-layer"></div>
+    <div id="spotlight-layer"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Aditya.</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
             </div>
-        </details>
-    </div>
-    <div class="box">
-        <details>
-            <summary>
-                <span class="summary-title">Education</span>
-                <span class="arrow" aria-hidden="true">▾</span>
-            </summary>
-            <div class="content">
-                <div class="edu-card">
+        </div>
+    </nav>
 
-    <div class="edu-header">
-        <h3>B.TECH (CSE)</h3>
-        <span class="year-pill">2022 – 2026</span>
-    </div>
-
-    <div class="location">📍 Graphic Era Hill University, Uttarakhand, IN</div>
-
-    <p class="desc">
-        Bachelor of Technology in Computer Science and Engineering from 
-        Graphic Era Hill University
-    </p>
-
-    <div class="tags">
-        <span>Computer Science</span>
-        <span>Engineering</span>
-    </div>
-
-</div>
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Intermediate</h3>
-        <span class="year-pill">2022 – 2023</span>
-    </div>
-
-    <div class="location">📍 Mallikarjun School, Uttarakhand, IN</div>
-
-    <p class="desc">
-        Studies Intermediate and High School at Mallikarjun School Pithoragarh
-    </p>
-
-    <div class="tags">
-        <span>High School</span>
-        <span>Primary School</span>
-    </div>
-
-</div>
-
+    <header class="hero">
+        <div class="container">
+            <div class="profile-wrapper">
+                <img src="logo.png" alt="Aditya Pandey" class="profile-img">
             </div>
-        </details>
-    </div>
-    
-<!-- ------------------PROJECTS------------------------------------------------------------------------------- -->
+            <h1 class="name">Aditya Pandey</h1>
+            <h2 class="title">Computer Science Student</h2>
+            <p class="location">📍 Bhimtal, Uttarakhand, IN</p>
+        </div>
+    </header>
 
+    <main class="container">
+        <section id="about" class="section">
+            <h3 class="section-title">About Me</h3>
+            <p class="about-text">
+                Hello! I'm Aditya Pandey. I love exploring the world of technology and coding. I'm currently pursuing my B.Tech in Computer Science and Engineering at Graphic Era Hill University. 
+                My interests include Data Science, AI-ML, and networking and IOT. I'm always eager to learn new things and take on exciting projects. Let's connect and create something amazing together!
+            </p>
+        </section>
 
-<div class="box">
-        <details>
-            <summary>
-                <span class="summary-title">Projects</span>
-                <span class="arrow" aria-hidden="true">▾</span>
-            </summary>
-            <div class="content">
-                <div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Decentralized Mesh Network</h3>
-        <span class="year-pill">Aug 2025</span>
-    </div>
-
-
-    <p class="desc">
-        A android application that creates a decentralized mesh network by connecting to a node by its own Wi-Fi, enabling peer-to-peer communication without relying on traditional internet infrastructure.
-    </p>
-
-    <div class="tags">
-        <span>ESP-32</span>
-        <span>Raspberry Pi</span>
-        <span>Kotlin</span>
-        <span>Android</span>
-    </div>
-
-</div>
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Tracker Hub</h3>
-        <span class="year-pill">Nov 2025</span>
-    </div>
-
-
-    <p class="desc">
-        A web application that helps users track their daily habits and tasks, providing insights and analytics to improve productivity and well-being, also managing expenses debts .
-    </p>
-
-    <div class="tags">
-        <span>React</span>
-        <span>JavaScript</span>
-    </div>
-
-</div>
-
-
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Medicare</h3>
-        <span class="year-pill">Oct 2025</span>
-    </div>
-
-    <p class="desc">
-        An AI powered web application that connects patients with Doctors, allowing users to book appointments, access medical records, and receive telemedicine services.
-    </p>
-
-    <div class="tags">
-        <span>LLM</span>
-        <span>React</span>
-        <span>SQL</span>
-        <span>Supabase</span>
-    </div>
-
-</div>
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>AI Based Image Generator</h3>
-        <span class="year-pill">Dec 2025</span>
-    </div>
-
-    <p class="desc">
-        A text-to-image generation system built with Stable Diffusion that lets you create stunning images from simple text descriptions. This project demonstrates practical implementation of generative AI for creative applications.    </p>
-
-    <div class="tags">
-        <span>Gradio</span>
-        <span>Pillow</span>
-        <span>Colab</span>
-        <span>LLM</span>
-    </div>
-
-</div>
-
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>AI based Attendance System</h3>
-        <span class="year-pill">Apr 2025</span>
-    </div>
-    <p class="desc">
-        An AI-based attendance system using Convolutional Neural Networks (CNN) and ESP-32 CAM module to automate attendance tracking through facial recognition, enhancing accuracy and efficiency in educational institutions.
-    </p>
-    <div class="tags">
-        <span>CNN</span>
-        <span>Python</span>
-        <span>ESP-32 CAM</span>
-    </div>
-
-</div>
-
-
-
+        <section id="education" class="section">
+            <h3 class="section-title">Education</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>B.TECH (CSE)</h4>
+                        <span class="year-pill">2022 – 2026</span>
+                    </div>
+                    <p class="institution">Graphic Era Hill University, Uttarakhand, IN</p>
+                    <ul class="desc-list">
+                        <li>Pursuing B.Tech in Computer Science and Engineering.</li>
+                        <li>Focusing on Data Science, AI/ML, and IoT.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>Computer Science</span>
+                        <span>Engineering</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Intermediate</h4>
+                        <span class="year-pill">2022 – 2023</span>
+                    </div>
+                    <p class="institution">Mallikarjun School, Uttarakhand, IN</p>
+                    <ul class="desc-list">
+                        <li>Completed Intermediate and High School education.</li>
+                        <li>Studied at Mallikarjun School, Pithoragarh.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>High School</span>
+                        <span>Primary School</span>
+                    </div>
+                </div>
             </div>
-        </details>
-    </div>
+        </section>
 
+        <section id="projects" class="section">
+            <h3 class="section-title">Projects</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Decentralized Mesh Network</h4>
+                        <span class="year-pill">Aug 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Android app for decentralized peer-to-peer communication.</li>
+                        <li>Uses Wi-Fi Direct for mesh networking without internet.</li>
+                        <li>Enables communication in off-grid scenarios.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>ESP-32</span>
+                        <span>Raspberry Pi</span>
+                        <span>Kotlin</span>
+                        <span>Android</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Tracker Hub</h4>
+                        <span class="year-pill">Nov 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Web app for tracking daily habits, tasks, and expenses.</li>
+                        <li>Provides analytics to improve productivity and well-being.</li>
+                        <li>Features expense and debt management tools.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>React</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
 
-    <!-- -------------------------------------------------CERTIFICATES----------------------------------------------------------------------- -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Medicare</h4>
+                        <span class="year-pill">Oct 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>AI-powered platform connecting patients with doctors.</li>
+                        <li>Features appointment booking and medical record access.</li>
+                        <li>Facilitates telemedicine services.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>LLM</span>
+                        <span>React</span>
+                        <span>SQL</span>
+                        <span>Supabase</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h4>AI Based Image Generator</h4>
+                        <span class="year-pill">Dec 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Text-to-image generation system using Stable Diffusion.</li>
+                        <li>Creates high-quality images from text descriptions.</li>
+                        <li>Demonstrates practical generative AI implementation.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>Gradio</span>
+                        <span>Pillow</span>
+                        <span>Colab</span>
+                        <span>LLM</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h4>AI based Attendance System</h4>
+                        <span class="year-pill">Apr 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Automated attendance tracking using Facial Recognition.</li>
+                        <li>Utilizes CNNs and ESP-32 CAM module.</li>
+                        <li>Enhances accuracy and efficiency for institutions.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>CNN</span>
+                        <span>Python</span>
+                        <span>ESP-32 CAM</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Smart Home Automation</h4>
+                        <span class="year-pill">Jan 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>IoT based home automation using ESP32.</li>
+                        <li>Control appliances via Web Interface.</li>
+                        <li>Real-time status monitoring.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>IoT</span>
+                        <span>ESP32</span>
+                        <span>C++</span>
+                        <span>Web</span>
+                    </div>
+                </div>
 
-<div class="box">
-        <details>
-            <summary>
-                <span class="summary-title">Certifications</span>
-                <span class="arrow" aria-hidden="true">▾</span>
-            </summary>
-            <div class="content">
-                <div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Introduction To Machine Learning</h3>
-        <span class="year-pill">Nov 2025</span>
-    </div>
-
-
-    <p class="desc">
-        A android application that creates a decentralized mesh network by connecting to a node by its own Wi-Fi, enabling peer-to-peer communication without relying on traditional internet infrastructure.
-    </p>
-
-    <div class="tags">
-        <span>ESP-32</span>
-        <span>Raspberry Pi</span>
-        <span>Kotlin</span>
-        <span>Android</span>
-    </div>
-
-</div>
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Data Science For Engineers</h3>
-        <span class="year-pill">Mar 2025</span>
-    </div>
-
-
-    <p class="desc">
-        A web application that helps users track their daily habits and tasks, providing insights and analytics to improve productivity and well-being, also managing expenses debts .
-    </p>
-
-    <div class="tags">
-        <span>React</span>
-        <span>JavaScript</span>
-    </div>
-
-</div>
-
-
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>Medicare</h3>
-        <span class="year-pill">Oct 2025</span>
-    </div>
-
-    <p class="desc">
-        An AI powered web application that connects patients with Doctors, allowing users to book appointments, access medical records, and receive telemedicine services.
-    </p>
-
-    <div class="tags">
-        <span>LLM</span>
-        <span>React</span>
-        <span>SQL</span>
-        <span>Supabase</span>
-    </div>
-
-</div>
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>AI Based Image Generator</h3>
-        <span class="year-pill">Dec 2025</span>
-    </div>
-
-    <p class="desc">
-        A text-to-image generation system built with Stable Diffusion that lets you create stunning images from simple text descriptions. This project demonstrates practical implementation of generative AI for creative applications.    </p>
-
-    <div class="tags">
-        <span>Gradio</span>
-        <span>Pillow</span>
-        <span>Colab</span>
-        <span>LLM</span>
-    </div>
-
-</div>
-
-
-
-<div class="edu-card">
-
-    <div class="edu-header">
-        <h3>AI based Attendance System</h3>
-        <span class="year-pill">Apr 2025</span>
-    </div>
-    <p class="desc">
-        An AI-based attendance system using Convolutional Neural Networks (CNN) and ESP-32 CAM module to automate attendance tracking through facial recognition, enhancing accuracy and efficiency in educational institutions.
-    </p>
-    <div class="tags">
-        <span>CNN</span>
-        <span>Python</span>
-        <span>ESP-32 CAM</span>
-    </div>
-
-</div>
-
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Sentiment Analysis Tool</h4>
+                        <span class="year-pill">Feb 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>NLP model to analyze text sentiment.</li>
+                        <li>Built with Python and NLTK/Spacy.</li>
+                        <li>Visualizes sentiment trends.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>NLP</span>
+                        <span>Python</span>
+                        <span>ML</span>
+                    </div>
+                </div>
 
 
             </div>
-        </details>
-    </div>
+        </section>
 
+        <section id="certifications" class="section">
+            <h3 class="section-title">Certifications</h3>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Introduction To Machine Learning</h4>
+                        <span class="year-pill">Nov 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Learned regression, classification, and clustering algorithms.</li>
+                        <li>Built models using Neural Networks and Decision Trees.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>Scikit-Learn</span>
+                        <span>ML</span>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Data Science For Engineers</h4>
+                        <span class="year-pill">Mar 2025</span>
+                    </div>
+                    <ul class="desc-list">
+                        <li>Utilized R for statistical analysis and probability.</li>
+                        <li>Applied data science algorithms to engineering problems.</li>
+                    </ul>
+                    <div class="tags">
+                        <span>R</span>
+                        <span>Statistics</span>
+                        <span>Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
+    <footer class="footer">
+        <p>&copy; 2025 Aditya Pandey. All rights reserved.</p>
+    </footer>
 
-<!-- ==========================END============================== -->
-    <script src="aboutme.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

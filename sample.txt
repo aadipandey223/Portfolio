@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Transition Showcase</title>
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #3b82f6;
+            --transition-speed: 0.5s;
+        }
+
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --accent-color: #60a5fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            height: 100vh;
+            overflow: hidden; /* Prevent scroll during animations */
+            display: flex;
+            flex-direction: column;
+            /* Default transition for the 'Soft Fade' effect */
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+        }
+
+        /* --- Header & Toggle Button --- */
+        header {
+            width: 100%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: flex-end; /* Pushes button to top right */
+            position: relative;
+            z-index: 20; /* Ensure button stays on top */
+        }
+
+        .toggle-btn {
+            background: none;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            padding: 10px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+            outline: none;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* --- Main Content --- */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--text-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* --- Animation Overlays --- */
+        
+        /* 1. The Curtain Overlay */
+        #curtain-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0%; /* Starts invisible */
+            background-color: #121212; /* Color it transitions TO */
+            z-index: 15;
+            transition: height 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        /* 2. The Spotlight (Circle) Overlay */
+        #spotlight-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            z-index: 15;
+            /* Initially hidden via clip-path */
+            clip-path: circle(0% at top right); 
+            pointer-events: none;
+            transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Animation Layers -->
+    <div id="curtain-layer"></div>
+    <div id="spotlight-layer"></div>
+
+    <header>
+        <button class="toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+            <span id="icon-container">
+                <!-- Sun Icon Default -->
+                <svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+            </span>
+            <span>Switch Mode</span>
+        </button>
+    </header>
+
+    <main>
+        <h1>Animation Demo</h1>
+        <div class="controls">
+            <label for="anim-select">Choose Animation Style:</label>
+            <select id="anim-select">
+                <option value="fade">1. Soft Fade</option>
+                <option value="curtain">2. The Curtain</option>
+                <option value="spotlight">3. The Spotlight</option>
+            </select>
+        </div>
+    </main>
+
+    <script>
+        let isDarkMode = false;
+        const body = document.body;
+        const iconContainer = document.getElementById('icon-container');
+        const curtainLayer = document.getElementById('curtain-layer');
+        const spotlightLayer = document.getElementById('spotlight-layer');
+        const btn = document.getElementById('theme-toggle');
+
+        // SVG Icons
+        const sunIcon = `<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>`;
+        const moonIcon = `<svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>`;
+
+        function toggleTheme() {
+            const animType = document.getElementById('anim-select').value;
+            
+            if (animType === 'fade') {
+                runFadeAnimation();
+            } else if (animType === 'curtain') {
+                runCurtainAnimation();
+            } else if (animType === 'spotlight') {
+                runSpotlightAnimation();
+            }
+        }
+
+        // --- 1. Soft Fade Logic ---
+        function runFadeAnimation() {
+            // Simply toggle the class. The CSS 'transition' property handles the rest.
+            switchMode();
+        }
+
+        // --- 2. Curtain Logic ---
+        function runCurtainAnimation() {
+            // Set curtain color to the color we are switching TO
+            const targetColor = isDarkMode ? '#ffffff' : '#121212';
+            curtainLayer.style.backgroundColor = targetColor;
+            
+            // Drop curtain
+            curtainLayer.style.height = '100%';
+
+            setTimeout(() => {
+                // Switch underlying theme while curtain is covering everything
+                switchMode();
+                
+                // Lift curtain after a brief pause
+                setTimeout(() => {
+                    curtainLayer.style.height = '0%';
+                }, 100);
+            }, 600); // Matches CSS transition time
+        }
+
+        // --- 3. Spotlight Logic ---
+        function runSpotlightAnimation() {
+            // Get button position to center the circle on the button
+            const rect = btn.getBoundingClientRect();
+            // Calculate center of button
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            // Set the layer color to what we are switching TO
+            const targetColor = isDarkMode ? '#ffffff' : '#121212';
+            spotlightLayer.style.backgroundColor = targetColor;
+
+            // Set initial position of the circle (at the button)
+            spotlightLayer.style.clipPath = `circle(0px at ${x}px ${y}px)`;
+            
+            // Force reflow
+            spotlightLayer.offsetHeight; 
+
+            // Expand circle to fill screen (150% of viewport width ensures coverage)
+            spotlightLayer.style.clipPath = `circle(150vw at ${x}px ${y}px)`;
+
+            setTimeout(() => {
+                // Switch underlying theme
+                switchMode();
+                // Reset layer instantly so it's ready for next time (hidden)
+                spotlightLayer.style.transition = 'none';
+                spotlightLayer.style.clipPath = `circle(0px at ${x}px ${y}px)`;
+                
+                // Re-enable transition for next click
+                setTimeout(() => {
+                    spotlightLayer.style.transition = 'clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1)';
+                }, 50);
+            }, 800);
+        }
+
+        function switchMode() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                iconContainer.innerHTML = moonIcon;
+            } else {
+                body.classList.remove('dark-mode');
+                iconContainer.innerHTML = sunIcon;
+            }
+        }
+    </script>
+</body>
+</html>

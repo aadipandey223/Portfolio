@@ -1,214 +1,342 @@
-body {
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --text-secondary: #555555;
+    --card-bg: #ffffff;
+    --card-border: #e5e5e5;
+    --accent-color: #111111;
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    --bg-color: #111111;
+    --text-color: #ffffff;
+    --text-secondary: #a0a0a0;
+    --card-bg: #1a1a1a;
+    --card-border: #333333;
+    --accent-color: #ffffff;
+    --nav-bg: rgba(17, 17, 17, 0.8);
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --hover-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+* {
     margin: 0;
-    height: 100vh;
-    background: #f1f0d7;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
-}
-
-.container {
-    text-align: center;
-}
-
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #333;
-    filter: none;
-    image-rendering: high-quality;
-    margin-top: 50px;
-    padding-bottom: 0%;
-    margin-bottom: -21px;
-}
-
-hr{
-    width: 60%;
-    
-}
-h1 {
-    font-size: 40px;
-    padding-top: 0%;
-    margin-bottom: -11px;
-}
-h2 {
-    font-size: 30px;
-    padding: 0%;
-    margin-bottom: -14px;
-}
-
-.box {
-    width: 900px;
-    background: none;
-    border-radius: 15px;
     padding: 0;
-    margin: 100px auto 0 auto;
-    overflow: hidden;
-}
-
-        details {
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        summary {
-            padding: 15px 20px;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
-        }
-        /* Hide the default summary marker so we can style our own arrow */
-        summary::-webkit-details-marker { display: none; }
-        summary::marker { display: none; }
-
-        .summary-title { display: inline-block; }
-        .arrow {
-            display: inline-block;
-            transition: transform 0.35s ease;
-            transform-origin: center;
-            font-size: 21px;
-            color: #555;
-        }
-
-        .content {
-            padding: 0 20px 15px;
-            font-size: 19.9px;
-            line-height: 1.4;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
-            max-height: 0; /* start collapsed */
-        }
-        details[open] .content {
-            /* If JS is disabled, enable a basic fallback using a high max-height */
-            max-height: 2000px;
-            opacity: 1;
-        }
-
-        /* Rotate the arrow for a visual cue */
-        details[open] .arrow { transform: rotate(180deg); }
-        
-@media (max-width: 900px) {
-    .box {
-        width: 90vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 60px;
-        padding: 0 10px;
-    }
-    summary {
-        font-size: 16px;
-        padding: 12px 10px;
-    }
-    .content {
-        font-size: 14px;
-        padding: 0 10px 10px;
-    }
-}
-
-@media (max-width: 600px) {
-    .box {
-        width: 98vw;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 30px;
-        padding: 0 5px;
-    }
-    summary {
-        font-size: 15px;
-        padding: 10px 5px;
-    }
-    .content {
-        font-size: 13px;
-        padding: 0 5px 8px;
-    }
-}
-
-
-
-
-.edu-card {
-    width: 100%;
-    max-width: 650px;
-    border: 1px solid #ddd;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    font-family: Arial, sans-serif;
-    margin: 20px auto;
     box-sizing: border-box;
 }
 
-.edu-header {
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--card-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.edu-header h3 {
-    margin: 0;
-    font-size: 22px;
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
 }
 
-.year-pill {
-    padding: 6px 12px;
-    font-size: 16px;
-    border-radius: 19px;
-    border: 1px solid #bbb;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--text-color);
+}
+
+/* Theme Toggle */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--card-border);
+}
+
+.sun-icon {
+    display: none;
+}
+
+.moon-icon {
+    display: block;
+}
+
+.dark-mode .sun-icon {
+    display: block;
+}
+
+.dark-mode .moon-icon {
+    display: none;
+}
+
+/* Layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 120px 0 60px;
+    text-align: center;
+}
+
+.profile-wrapper {
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--card-border);
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.02em;
+}
+
+.title {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
 }
 
 .location {
-    font-size: 19px;
-    opacity: 0.7;
-    margin-top: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* Sections */
+.section {
+    padding: 60px 0;
+    border-top: 1px solid var(--card-border);
+}
+
+.section:first-of-type {
+    border-top: none;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: -0.01em;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Grid & Cards */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+    border-color: var(--text-secondary);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.card-header h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.year-pill {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 100px;
+    background-color: var(--card-border);
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.institution {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    font-weight: 500;
 }
 
 .desc {
-    font-size: 19px;
-    margin: 12px 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .tags span {
-    display: inline-block;
-    margin-right: 10px;
-    padding: 6px 12px;
-    border: 1px solid #000;
-    border-radius: 20px;
-    font-size: 18px;
-    margin-bottom: 8px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--card-border);
+    color: var(--text-secondary);
 }
 
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--card-border);
+    margin-top: 40px;
+}
+
+/* Mobile Nav */
 @media (max-width: 600px) {
-    .edu-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    .nav-links {
+        gap: 1rem;
     }
-    
-    .edu-card {
-        padding: 15px;
+    .nav-links a {
+        font-size: 0.85rem;
     }
-
-    .tags span {
-        font-size: 14px;
-        padding: 4px 8px;
+    .name {
+        font-size: 2rem;
     }
-    
-    .desc, .location {
-        font-size: 16px;
-    }
-    
-    h1 {
-        font-size: 28px;
-    }
-    h2 {
-        font-size: 22px;
+    .grid {
+        grid-template-columns: 1fr;
     }
 }
 
 
+
+
+/* --- Animation Overlays --- */
+
+/* 1. The Curtain Overlay */
+#curtain-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%; /* Starts invisible */
+    background-color: #111111; /* Color it transitions TO */
+    z-index: 9999;
+    transition: height 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+/* 2. The Spotlight (Circle) Overlay */
+#spotlight-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #111111;
+    z-index: 9999;
+    /* Initially hidden via clip-path */
+    clip-path: circle(0% at top right); 
+    pointer-events: none;
+    transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+
+.desc-list {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.desc-list li {
+    margin-bottom: 6px;
+}
 
