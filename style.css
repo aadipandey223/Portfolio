@@ -40,6 +40,20 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Global link styling to override browser defaults */
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:active {
+    color: var(--text-color);
+}
+
 /* Navbar */
 .navbar {
     position: fixed;
