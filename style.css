@@ -268,6 +268,22 @@ body {
     color: var(--text-secondary);
 }
 
+.project-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 2px;
+    transition: all 0.2s ease;
+}
+
+.project-link:hover {
+    border-bottom-color: var(--text-color);
+}
+
 /* Footer */
 .footer {
     text-align: center;
@@ -283,12 +299,15 @@ body {
     .nav-links {
         gap: 1rem;
     }
+
     .nav-links a {
         font-size: 0.85rem;
     }
+
     .name {
         font-size: 2rem;
     }
+
     .grid {
         grid-template-columns: 1fr;
     }
@@ -305,8 +324,10 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 0%; /* Starts invisible */
-    background-color: #111111; /* Color it transitions TO */
+    height: 0%;
+    /* Starts invisible */
+    background-color: #111111;
+    /* Color it transitions TO */
     z-index: 9999;
     transition: height 0.6s cubic-bezier(0.7, 0, 0.3, 1);
 }
@@ -321,7 +342,7 @@ body {
     background-color: #111111;
     z-index: 9999;
     /* Initially hidden via clip-path */
-    clip-path: circle(0% at top right); 
+    clip-path: circle(0% at top right);
     pointer-events: none;
     transition: clip-path 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
@@ -339,4 +360,3 @@ body {
 .desc-list li {
     margin-bottom: 6px;
 }
-
